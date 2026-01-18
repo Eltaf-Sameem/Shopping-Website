@@ -1,19 +1,9 @@
 import { ShoppingCart } from "lucide-react";
-import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../style/NavBar.css";
 
-export function NavBar({ token }) {
-
-    const [user, setUser] = useState(
-        localStorage.getItem("capstone-user") || "guest"
-    );
-
-
-    const [cart, setCart] = useState(
-        // parsing and pulling cart info from local storage if exist
-        JSON.parse(localStorage.getItem(`${user}-cart`)) || []
-    );
+export function NavBar({ token, setToken, cart, setCart, user, setUser }) {
 
     //update cart if user changes
     useEffect(() => {
@@ -28,6 +18,14 @@ export function NavBar({ token }) {
 
 
     let cartQty = cart.reduce((total, item) => total + Number(item.quantity), 0);
+
+    function handleLogout() {
+        localStorage.removeItem("capstone-token");
+        setToken(null);
+        setUser("guest");
+        localStorage.setItem("capstone-user", "guest");
+        useNavigate("/login");
+    }
 
 
 
