@@ -1,8 +1,8 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
-import { Home } from './Pages/Home';
 import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
 import { NavBar } from './components/NavBar';
+import { Home } from './Pages/Home';
 
 export const App = () => {
   const [user, setUser] = useState(
@@ -24,7 +24,7 @@ export const App = () => {
       <div>
         <Routes>
 
-          <Route path="/" element={<Home />}>
+          <Route path="/" element={<Home cart={cart} setCart={setCart} />}>
           </Route>
 
         </Routes>

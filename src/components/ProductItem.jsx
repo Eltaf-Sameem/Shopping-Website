@@ -1,0 +1,77 @@
+import { useNavigate } from "react-router-dom"
+import "../style/ProductItem.css";
+import { useState } from "react";
+
+export const ProductItem = ({ product, cart, setCart }) => {
+    const navigate = useNavigate();
+
+    const [inCart, setInCart] = useState(
+        cart.find((item) => item.id === product.id)
+    );
+
+    const handleAddClick = () => {
+        if (inCart) {
+            const updatedCart = cart.filter((item) => item.id != product.id)
+            setCart(updatedCart);
+        } else {
+            setCart((prevItems) => {
+                const productToAdd = {
+                    ...product,
+                    quantity: product.quantity || 1,
+                };
+                return [...prevItems, productToAdd];
+            });
+        }
+
+        setInCart(!inCart);
+    }
+
+    return (
+        <div className="product-div">
+            <div
+                className="product-img-div"
+                onClick={() => navigate(`/products/${product.id}`)}
+                title="View Product"
+            >
+
+                {product.image ? (
+                    <img className="product-img" src={`${product.image}`} alt="" />
+                ) : (
+                    <h4>Loading Image....</h4>
+                )}
+            </div>
+
+            <div className="product-title">
+                <h3
+                    onClick={() => {
+                        navigate(`/products/${product.id}`)
+                    }}
+                    title={product.title}
+                >
+                    {product.title.substring(0, 15)}...
+                </h3>
+                <h4 className="product-price">${product.price}</h4>
+            </div>
+
+            <div className="rating-div">
+                <p>
+                    {product.rating.rate} ⭐️ ({product.rating.count})
+                </p>
+            </div>
+
+            <div className="buttons">
+                <button
+                    className={inCart ? "remove-button" : "simple-button"}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        handleAddClick();
+                    }}
+                >
+                    {inCart ? "Remove" : "Add to Cart"}
+                </button>
+            </div>
+
+        </div>
+    );
+
+}
