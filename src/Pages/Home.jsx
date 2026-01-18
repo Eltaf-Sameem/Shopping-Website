@@ -3,7 +3,7 @@ import { fetchAllProds } from "../api/api.js";
 import { ProductItem } from "../components/ProductItem.jsx";
 import "../style/GetAllProducts.css";
 
-export const Home = ({cart, setCart}) => {
+export const Home = ({ cart, setCart }) => {
     const [title, setTitle] = useState("All Products");
     const [searchedProd, setSearchedProd] = useState("");
     const [sortPrice, setSortPrice] = useState("default");
@@ -37,6 +37,13 @@ export const Home = ({cart, setCart}) => {
                 .includes(searchedProd.toLocaleLowerCase()) ||
             product.title.toLowerCase().includes(searchedProd.toLowerCase())
     );
+
+    //sorting prods based on sort filter
+    if (sortPrice === "asc") {
+        filteredProds.sort((a, b) => a.price - b.price);
+    } else if (sortPrice === "desc") {
+        filteredProds.sort((a, b) => b.price - a.price);
+    }
 
 
 
