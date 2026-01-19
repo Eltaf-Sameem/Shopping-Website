@@ -3,12 +3,12 @@ import { fetchAllProds } from "../api/api.js";
 import { ProductItem } from "../components/ProductItem.jsx";
 import "../style/GetAllProducts.css";
 
-export const Home = ({ cart, setCart }) => {
+export const Home = ({prods, setProds, cart, setCart }) => {
     const [title, setTitle] = useState("All Products");
     const [searchedProd, setSearchedProd] = useState("");
     const [sortPrice, setSortPrice] = useState("default");
     const [category, setCategory] = useState("all");
-    const [prods, setProds] = useState(null);
+    // const [prods, setProds] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {

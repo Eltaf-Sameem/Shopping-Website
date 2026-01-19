@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { NavBar } from './components/NavBar';
 import { Home } from './Pages/Home';
+import { SingleProduct } from "./Pages/SingleProduct"
 
 export const App = () => {
   const [user, setUser] = useState(
@@ -12,6 +13,9 @@ export const App = () => {
   const [token, setToken] = useState(
     localStorage.getItem("capstone-token") || null
   );
+
+  const [prods, setProds] = useState(null);
+
   const [cart, setCart] = useState(
     // parsing and pulling cart info from local storage if exist
     JSON.parse(localStorage.getItem(`${user}-cart`)) || []
@@ -24,8 +28,10 @@ export const App = () => {
       <div>
         <Routes>
 
-          <Route path="/" element={<Home cart={cart} setCart={setCart} />}>
-          </Route>
+          <Route path="/" element={<Home prods={prods} setProds={setProds} cart={cart} setCart={setCart} />} />
+          <Route path="/product/:id" element={<SingleProduct prods={prods} />} />
+
+          
 
         </Routes>
 
