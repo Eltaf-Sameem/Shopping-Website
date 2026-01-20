@@ -20,10 +20,10 @@ export function NavBar({ token, setToken, cart, setCart, user, setUser }) {
     let cartQty = cart.reduce((total, item) => total + Number(item.quantity), 0);
 
     function handleLogout() {
-        localStorage.removeItem("capstone-token");
+        localStorage.removeItem("shop-token");
         setToken(null);
         setUser("guest");
-        localStorage.setItem("capstone-user", "guest");
+        localStorage.setItem("shop-user", "guest");
         useNavigate("/login");
     }
 

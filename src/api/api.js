@@ -1,4 +1,3 @@
-import { ssrImportKey } from "vite/module-runner";
 
 const API_URL = "https://fakestoreapi.com"
 
@@ -15,7 +14,7 @@ export async function fetchAllProds() {
 
 export async function login(username, password) {
     try {
-        const response = await fetch(`${API_URL}`, {
+        const response = await fetch(`${API_URL}/auth/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

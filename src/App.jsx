@@ -6,14 +6,15 @@ import { Home } from './Pages/Home';
 import { SingleProduct } from "./Pages/SingleProduct"
 import { fetchAllProds } from "/src/api/api.js";
 import { Cart } from "./Pages/Cart.jsx";
+import { Login } from './Pages/Login.jsx';
 
 export const App = () => {
   const [user, setUser] = useState(
-    localStorage.getItem("capstone-user") || "guest"
+    localStorage.getItem("shop-user") || "guest"
   );
 
   const [token, setToken] = useState(
-    localStorage.getItem("capstone-token") || null
+    localStorage.getItem("shop-token") || null
   );
 
   //-----------home--------------
@@ -77,6 +78,7 @@ export const App = () => {
 
             <Route path="/products/:id" element={<SingleProduct prods={prods} cart={cart} setCart={setCart} />} />
             <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
+            <Route path="/login" element={<Login token={token} setToken={setToken} setUser={setUser} setCart={setCart}/>} />
 
 
           </Routes >
