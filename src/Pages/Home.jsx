@@ -1,51 +1,12 @@
-import { useEffect, useState } from "react";
-import { fetchAllProds } from "../api/api.js";
+import { useState } from "react";
 import { ProductItem } from "../components/ProductItem.jsx";
 import "../style/GetAllProducts.css";
 
-export const Home = ({prods, setProds, cart, setCart }) => {
+export const Home = ({
+    cart, setCart, loading, category, setCategory, searchedProd, setSearchedProd, filteredProds, setSortPrice
+}) => {
+
     const [title, setTitle] = useState("All Products");
-    const [searchedProd, setSearchedProd] = useState("");
-    const [sortPrice, setSortPrice] = useState("default");
-    const [category, setCategory] = useState("all");
-    // const [prods, setProds] = useState(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        async function getAllProds() {
-            const result = await fetchAllProds();
-            setProds(result);
-            setLoading(false);
-        }
-        getAllProds();
-    }, []);
-
-
-    //filtering the prods based on category
-    const filteredCategory =
-        prods ?
-            (
-                category === "all" ? prods : prods.filter((product) => product.category === category)
-            )
-            : [];
-
-    //filtering the prods based on searchedProd
-    const filteredProds = filteredCategory.filter(
-        (product) =>
-            product.description
-                .toLowerCase()
-                .includes(searchedProd.toLocaleLowerCase()) ||
-            product.title.toLowerCase().includes(searchedProd.toLowerCase())
-    );
-
-    //sorting prods based on sort filter
-    if (sortPrice === "asc") {
-        filteredProds.sort((a, b) => a.price - b.price);
-    } else if (sortPrice === "desc") {
-        filteredProds.sort((a, b) => b.price - a.price);
-    }
-
-
 
     return (
         <>
