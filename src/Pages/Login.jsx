@@ -19,7 +19,6 @@ export const Login = ({ token, setToken, setUser, setCart }) => {
             const response = await login(username, password)
             response && setErr(null)
             response && localStorage.setItem("shop-token", response.token)
-            console.log("here");
             
             setToken(response.token)
             setUser(username)

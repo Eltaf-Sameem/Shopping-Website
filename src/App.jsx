@@ -7,6 +7,7 @@ import { SingleProduct } from "./Pages/SingleProduct"
 import { fetchAllProds } from "/src/api/api.js";
 import { Cart } from "./Pages/Cart.jsx";
 import { Login } from './Pages/Login.jsx';
+import { Register } from './Pages/Register.jsx';
 
 export const App = () => {
   const [user, setUser] = useState(
@@ -78,8 +79,8 @@ export const App = () => {
 
             <Route path="/products/:id" element={<SingleProduct prods={prods} cart={cart} setCart={setCart} />} />
             <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
-            <Route path="/login" element={<Login token={token} setToken={setToken} setUser={setUser} setCart={setCart}/>} />
-
+            <Route path="/login" element={<Login token={token} setToken={setToken} setUser={setUser} setCart={setCart} />} />
+            <Route path="/register" element={<Register token={token} setToken={setToken} />} />
 
           </Routes >
 
