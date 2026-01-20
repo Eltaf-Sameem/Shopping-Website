@@ -57,11 +57,11 @@ export const Cart = ({ cart, setCart }) => {
                                 <img
                                     src={prod.image}
                                     className="cart-item-img"
-                                    onClick={() => navigate(`/product/${prod.id}`)}
+                                    onClick={() => navigate(`/products/${prod.id}`)}
                                 />
                             </div>
 
-                            <h4 className="cart-item-title" onClick={() => navigate(`/product/${prod.id}`)}>
+                            <h4 className="cart-item-title" onClick={() => navigate(`/products/${prod.id}`)}>
                                 {prod.title}
                             </h4>
 
