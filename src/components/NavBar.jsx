@@ -44,7 +44,7 @@ export function NavBar({ token, setToken, cart, setCart, user, setUser }) {
                 <div className="nav-cart-icon">
                     <NavLink to={"/cart"} className={"cart-link"}>
                         <ShoppingCart />
-                        {<sub className="cart-qty">{cartQty}</sub>}
+                        {cart.length > 0 && <sub className="cart-qty">{cartQty}</sub>}
                     </NavLink>
                 </div>
 
