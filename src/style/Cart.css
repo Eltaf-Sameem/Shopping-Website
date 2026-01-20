@@ -1,0 +1,134 @@
+.cart-canvas {
+  box-shadow: 0 0 10px rgba(155, 155, 160, 0.778);
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.cart-item-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 10px rgba(155, 155, 160, 0.778);
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.cart-item-img-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  margin-right: 1rem;
+}
+
+.cart-item-img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.cart-item-img:hover {
+  max-width: 120%;
+  max-height: 120%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cart-item-title {
+  margin-right: 1rem;
+  width: 20rem;
+}
+
+.cart-item-title:hover {
+  cursor: pointer;
+  color: rgb(16, 36, 218);
+  font-size: large;
+  transition: all 0.2s ease;
+}
+
+.cart-item-price {
+  margin: 1rem;
+  width: 6rem;
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
+  width: 8rem;
+  padding: 1rem;
+}
+
+.cart-item-subtotal {
+  width: 7rem;
+}
+
+.cart-item-qty-div {
+  display: flex;
+  align-items: center;
+}
+
+.item-qty {
+  width: 1rem;
+  text-align: center;
+}
+
+.qty-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  text-align: center;
+  border-radius: 6px;
+  color: white;
+  background-color: #3d8cd6;
+  border: none;
+  cursor: pointer;
+}
+
+.increament-button:hover {
+  background-color: #20844d;
+  box-shadow: 0px 0px 10px #2c7c50;
+  font-size: x-large;
+}
+
+.decreament-button:hover {
+  background-color: #a42222;
+  box-shadow: 0px 0px 10px #861111;
+  font-size: x-large;
+}
+
+.checkout-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.checkout-button-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkout-button-div2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.checkout-button {
+  width: 15rem;
+}
+
+.grand-total-div {
+  width: 15rem;
+  margin-right: 1rem;
+}
