@@ -65,21 +65,22 @@ export const App = () => {
     <>
       <NavBar token={token} setToken={setToken} cart={cart} setCart={setCart} user={user} setUser={setUser} />
 
-      <div>
-        <Routes>
+      <div className="canvas">
+        <div className="canvas-div">
+          <Routes>
 
-          <Route path="/" element={<Home
-            cart={cart} setCart={setCart} loading={loading} category={category} setCategory={setCategory}
-            setSearchedProd={setSearchedProd} filteredProds={filteredProds} setSortPrice={setSortPrice} 
-          />} />
+            <Route path="/" element={<Home
+              cart={cart} setCart={setCart} loading={loading} category={category} setCategory={setCategory}
+              setSearchedProd={setSearchedProd} filteredProds={filteredProds} setSortPrice={setSortPrice}
+            />} />
 
-          <Route path="/products/:id" element={<SingleProduct prods={prods} cart={cart} setCart={setCart} />} />
+            <Route path="/products/:id" element={<SingleProduct prods={prods} cart={cart} setCart={setCart} />} />
 
 
+          </Routes >
 
-        </Routes>
-
-      </div>
+        </div>
+      </div >
     </>
   )
 }
