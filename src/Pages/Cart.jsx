@@ -69,9 +69,9 @@ export const Cart = ({ cart, setCart }) => {
 
                             <div className="cart-item-qty-div">
                                 Qty:
-                                <button className="increment-button qty-buttons" onClick={() => { incrementQty(prod.id) }}>+</button>
+                                <button className="increament-button qty-buttons" onClick={() => { incrementQty(prod.id) }}>+</button>
                                 <p className="item-qty">{prod.quantity}</p>
-                                <button className="decrement-button qty-buttons" onClick={() => { decrementQty(prod.id) }}>-</button>
+                                <button className="decreament-button qty-buttons" onClick={() => { decrementQty(prod.id) }}>-</button>
                             </div>
 
                             <div className="button-div">
