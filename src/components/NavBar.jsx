@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import "../style/NavBar.css";
 
 export function NavBar({ token, setToken, cart, setCart, user, setUser }) {
+    const navigate = useNavigate();
 
     //update cart if user changes
     useEffect(() => {
@@ -24,7 +25,7 @@ export function NavBar({ token, setToken, cart, setCart, user, setUser }) {
         setToken(null);
         setUser("guest");
         localStorage.setItem("shop-user", "guest");
-        useNavigate("/login");
+        navigate("/login");
     }
 
 
